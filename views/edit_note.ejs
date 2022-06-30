@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="/public/css/style.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+
+<body class="back">
+    <%- include ('partials/nav.ejs') -%>
+        
+        <div >
+            <div class="card" style="width: 30rem;margin-left: auto;margin-right: auto; border:none;background:none;">
+                <B>
+                    <br>
+                    <h5 class="heading"><%= title%></h5>
+                </B>
+                <div class="center">
+                    <form name="form1"  style="margin: auto; width: 220px;" method="POST" action="/note/edit/<%= note._id %>">
+                        <table>
+                            <tr>
+                                <td class="heading">Title: </td>
+                                <td><input type="text" name="title" value="<%= note.title %>"></td>
+                                </td>
+                            </tr>
+                            <td>
+                                <tr>
+                                    <br>
+                                </tr>
+                            </td>
+                            <td>
+                                <br>
+                            </td>
+                            <tr>
+                                <td class="heading">Body: </td>
+                                <td><textarea name="body" cols="25"><%= note.body %></textarea></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2"><input class="btn btn-light" style="float:right;"type="submit" value="Submit"></td>
+                            </tr>
+                        </table>
+        
+                    </form>
+                </div>
+                
+    
+            </div>
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/public/js/main.js"></script>
+</body>
+
+</html>
