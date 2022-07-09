@@ -4,7 +4,7 @@ const router = express.Router();
 // Express Validator middleware
 const { check, validationResult } = require('express-validator');
 
-//bring article models
+//bring note models
 let { Note } = require('../models/note');
 
 //bring user models
@@ -33,8 +33,6 @@ check('body', 'body is empty').notEmpty()],
         } else {
             var note = new Note();
             note.title = req.body.title;
-            // console.log(req.user);
-            // article.author = req.user.username;
             note.author = req.user.id;
             note.body = req.body.body;
             note.date = new Date();
@@ -90,18 +88,6 @@ router.delete('/delete/:id', (req, res) => {
             res.redirect('/home');
         }
     });
-})
-
-// get single article
-router.get('/:id', (req, res) => {
-    Note.findById(req.params.id, (err, note) => {
-        User.findById(note.author, (err, user) => {
-            res.render('home', {
-                note: note,
-                author: user.name
-            });
-        });
-    })
 })
 
 //access control 

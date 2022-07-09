@@ -11,7 +11,7 @@ app.use(methodOverride("_method"));
 app.use(express.json());
 
 
-//bring article models
+//bring note models
 
 let { Note } = require('./models/note');
 
